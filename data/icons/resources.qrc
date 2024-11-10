@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="resources">
+    <file>menu_book_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg</file>
+    <file>help.svg</file>
+    <file>quiz.svg</file>
+    <file>settings.svg</file>
+  </qresource>
+</RCC>
