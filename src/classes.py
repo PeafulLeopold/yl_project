@@ -282,8 +282,7 @@ class MainMenu(QMainWindow, Ui_MainMenu):
         self.help_button.setIcon(QIcon('data/icons/help.svg'))
         self.settings_button.setIcon(QIcon('data/icons/settings.svg'))
         self.book_button.setIcon(QIcon('data/icons/book.svg'))
-        self.setStyleSheet('background-color: #FFE4B5; background-repeat: no-repeat; background-position: center')
-
+        
         self.book_button.clicked.connect(self.open_book)
         self.quiz_button.clicked.connect(self.open_quiz)
     
