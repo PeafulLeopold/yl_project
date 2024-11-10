@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication, QMainWindow
+from PyQt6.QtWidgets import QMainWindow, QVBoxLayout
 from PyQt6.QtGui import QIcon, QColor, QTextCharFormat
 from PyQt6 import QtCore
 
@@ -282,7 +282,7 @@ class MainMenu(QMainWindow, Ui_MainMenu):
         self.help_button.setIcon(QIcon('data/icons/help.svg'))
         self.settings_button.setIcon(QIcon('data/icons/settings.svg'))
         self.book_button.setIcon(QIcon('data/icons/book.svg'))
-        
+
         self.book_button.clicked.connect(self.open_book)
         self.quiz_button.clicked.connect(self.open_quiz)
     
