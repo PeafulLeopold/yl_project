@@ -2,18 +2,18 @@ from PyQt6.QtWidgets import QMainWindow, QVBoxLayout
 from PyQt6.QtGui import QIcon, QColor, QTextCharFormat
 from PyQt6 import QtCore
 
-from data.py_items.config import EVENTS
-from data.py_items.main_menu import Ui_MainMenu
-from data.py_items.book import Ui_Book
-from data.py_items.calendar_ import Ui_Calendar
-from data.py_items.lessons import Ui_Lessons
-from data.py_items.ancient_world import Ui_AncientWorld
-from data.py_items.middle_ages import Ui_MiddleAges
-from data.py_items.revival_era import Ui_RevivalEra
-from data.py_items.new_era import Ui_NewEra
-from data.py_items.twenty_century import Ui_TwentyCentury
-from data.py_items.modern_world import Ui_ModernWorld
-from data.py_items.quiz_introduction import Ui_QuizIntroduction
+from py_items.config import EVENTS
+from py_items.main_menu import Ui_MainMenu
+from py_items.book import Ui_Book
+from py_items.calendar_ import Ui_Calendar
+from py_items.lessons import Ui_Lessons
+from py_items.ancient_world import Ui_AncientWorld
+from py_items.middle_ages import Ui_MiddleAges
+from py_items.revival_era import Ui_RevivalEra
+from py_items.new_era import Ui_NewEra
+from py_items.twenty_century import Ui_TwentyCentury
+from py_items.modern_world import Ui_ModernWorld
+from py_items.quiz_introduction import Ui_QuizIntroduction
 
 
 class Middle_Ages(QMainWindow, Ui_MiddleAges):
@@ -24,6 +24,7 @@ class Middle_Ages(QMainWindow, Ui_MiddleAges):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
+        self.setStyleSheet('background-color: #ffe4b5;')
     
     def open_first_lesson(self):
         ...
@@ -48,6 +49,7 @@ class Ancient_World(QMainWindow, Ui_AncientWorld):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
+        self.setStyleSheet('background-color: #ffe4b5;')
 
     def open_first_lesson(self):
         ...
@@ -72,6 +74,7 @@ class RevivalEra(QMainWindow, Ui_RevivalEra):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
+        self.setStyleSheet('background-color: #ffe4b5;')
 
     def open_first_lesson(self):
         ...
@@ -96,6 +99,7 @@ class NewEra(QMainWindow, Ui_NewEra):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
+        self.setStyleSheet('background-color: #ffe4b5;')
 
     def open_first_lesson(self):
         ...
@@ -120,6 +124,7 @@ class TwentyCentury(QMainWindow, Ui_TwentyCentury):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
+        self.setStyleSheet('background-color: #ffe4b5;')
 
     def open_first_lesson(self):
         ...
@@ -144,6 +149,7 @@ class ModernWorld(QMainWindow, Ui_ModernWorld):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
+        self.setStyleSheet('background-color: #ffe4b5;')
 
     def open_first_lesson(self):
         ...
@@ -167,6 +173,7 @@ class Lessons(QMainWindow, Ui_Lessons):
         self.return_button.setIcon(QIcon('data/icons/return.svg'))
         self.return_button.clicked.connect(self.return_back)
         self.lessons_button.clicked.connect(self.open_lesson)
+        self.setStyleSheet('background-color: #ffe4b5;')
     
     def open_lesson(self):
         item_text = self.epochesbox.currentText()
@@ -216,6 +223,7 @@ class Calendar(QMainWindow, Ui_Calendar):
         self.return_button.clicked.connect(self.return_back) 
         self.format = QTextCharFormat()
         self.format.setBackground(QColor("red"))
+        self.setStyleSheet('background-color: #ffe4b5;')
 
         for event_date in EVENTS.keys():
             self.date = QtCore.QDate.fromString(event_date, 'yyyy-MM-dd')
@@ -239,6 +247,7 @@ class QuizInroduction(QMainWindow, Ui_QuizIntroduction):
         self.setupUi(self)
         self.saw_button.clicked.connect(self.next_window)
         self.return_button.clicked.connect(self.return_back)
+        self.setStyleSheet('background-color: #ffe4b5;')
     
     def next_window(self):
         ...
@@ -256,6 +265,7 @@ class Book(QMainWindow, Ui_Book):
         self.back_button.clicked.connect(self.return_page)
         self.calendar_button.clicked.connect(self.open_calendar)
         self.lesson_button.clicked.connect(self.open_lessons)
+        self.setStyleSheet('background-color: #ffe4b5;')
         
         self.back_button.setIcon(QIcon('data/icons/return.svg'))
     
@@ -285,6 +295,7 @@ class MainMenu(QMainWindow, Ui_MainMenu):
 
         self.book_button.clicked.connect(self.open_book)
         self.quiz_button.clicked.connect(self.open_quiz)
+        self.setStyleSheet('background-color: #ffe4b5;')
     
     def open_quiz(self):
         self.quiz_introduction = QuizInroduction()
