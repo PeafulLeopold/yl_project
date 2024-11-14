@@ -6,7 +6,7 @@ class Ui_MainMenu(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainMenu")
         MainWindow.resize(1276, 1307)
-        self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        self.centralwidget = QtWidgets.QWidget()
         self.centralwidget.setObjectName("centralwidget")
         self.quiz_button = QtWidgets.QPushButton(parent=self.centralwidget)
         self.quiz_button.setGeometry(QtCore.QRect(380, 270, 371, 91))
