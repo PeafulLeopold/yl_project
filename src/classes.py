@@ -14,6 +14,24 @@ from py_items.new_era import Ui_NewEra
 from py_items.twenty_century import Ui_TwentyCentury
 from py_items.modern_world import Ui_ModernWorld
 from py_items.quiz_introduction import Ui_QuizIntroduction
+from py_items.ancient_first_lesson import Ui_AncientFirstLesson
+
+
+class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.return_button.clicked.connect(self.return_back)
+        # self.next_lesson_button.clicked.connect(self.open_next_lesson)
+        self.setStyleSheet('background-color: #ffe4b5;')
+
+    def return_back(self):
+        self.ancient_times = Ancient_World()
+        self.ancient_times.show()
+        self.hide()
+           
+    def open_next_lesson(self):
+        ...
 
 
 class Middle_Ages(QMainWindow, Ui_MiddleAges):
@@ -52,7 +70,9 @@ class Ancient_World(QMainWindow, Ui_AncientWorld):
         self.setStyleSheet('background-color: #ffe4b5;')
 
     def open_first_lesson(self):
-        ...
+        self.first_lesson_window = AncientFirstLesson()
+        self.first_lesson_window.show()
+        self.hide()
     
     def open_second_lesson(self):
         ...

@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QIcon, QFont
+from PyQt6.QtWidgets import QVBoxLayout
 
 
 class Ui_MainMenu(object):
