@@ -67,9 +67,9 @@ class Ui_AncientFirstLesson(object):
         self.next_lesson_button.setIcon(QIcon('data/icons/next.svg'))
         self.return_button.setIcon(QIcon('data/icons/return.svg'))
 
-        self.shumer_photo.setPixmap(QPixmap('data/lessons_photo/shumer.png'))
-        self.olmeki_photo.setPixmap(QPixmap('data/lessons_photo/olmeki.webp'))
-        self.china_photo.setPixmap(QPixmap('data/lessons_photo/anc_china.webp'))
+        self.shumer_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/shumer.png'))
+        self.olmeki_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/olmeki.webp'))
+        self.china_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/anc_china.webp'))
         
         self.shumer_photo.setScaledContents(True)
         self.olmeki_photo.setScaledContents(True)

@@ -29,7 +29,7 @@ class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
         self.ancient_times = Ancient_World()
         self.ancient_times.show()
         self.hide()
-           
+
     def open_next_lesson(self):
         ...
 
@@ -265,7 +265,7 @@ class QuizInroduction(QMainWindow, Ui_QuizIntroduction):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.saw_button.clicked.connect(self.next_window)
+        # self.saw_button.clicked.connect(self.next_window)
         self.return_button.clicked.connect(self.return_back)
         self.setStyleSheet('background-color: #ffe4b5;')
     
