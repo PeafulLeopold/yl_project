@@ -18,6 +18,7 @@ from py_items.modern_world import Ui_ModernWorld
 from py_items.quiz_introduction import Ui_QuizIntroduction
 from py_items.ancient_first_lesson import Ui_AncientFirstLesson
 from py_items.quiz_question import Ui_QuizQuestion
+from py_items.quiz_result import Ui_QuizResult
 
 
 QUESTION_NUMBER = 1
@@ -26,6 +27,38 @@ LEVEL = ''
 USED_LINES = []
 CORRECT_ANSWERS = 0
 
+
+class QuizResult(QMainWindow, Ui_QuizResult):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.menu_button.clicked.connect(self.open_menu)
+        self.restart_button.clicked.connect(self.restart_quiz)
+        self.setStyleSheet('background-color: #ffe4b5;')
+
+        self.result_label.setText(f'{CORRECT_ANSWERS} из {AMOUNT_OF_QUESTIONS} баллов')
+    
+    def open_menu(self):
+        global QUESTION_NUMBER
+        global CORRECT_ANSWERS
+
+        QUESTION_NUMBER = 1
+        CORRECT_ANSWERS = 0
+
+        self.menu_window = MainMenu()
+        self.menu_window.show()
+        self.hide()
+    
+    def restart_quiz(self):
+        global QUESTION_NUMBER
+        global CORRECT_ANSWERS
+
+        self.new_quiz_window = QuizInroduction()
+        self.new_quiz_window.show()
+        self.hide()
+        
+        QUESTION_NUMBER = 1
+        CORRECT_ANSWERS = 0
 
 class QuizQuestion(QMainWindow, Ui_QuizQuestion):
     def __init__(self):
@@ -93,7 +126,9 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
             self.next_question_window.show()
             self.hide()
         else:
-            ...
+            self.quiz_result_window = QuizResult()
+            self.quiz_result_window.show()
+            self.hide()
 
 
 class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
