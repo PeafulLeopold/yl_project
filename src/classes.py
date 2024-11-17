@@ -17,12 +17,17 @@ from py_items.quiz_introduction import Ui_QuizIntroduction
 from py_items.ancient_first_lesson import Ui_AncientFirstLesson
 
 
+QUESTION_NUMBER = 1
+AMOUNT_OF_QUESTIONS = 1
+LEVEL = ''
+
+
 class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.return_button.clicked.connect(self.return_back)
-        # self.next_lesson_button.clicked.connect(self.open_next_lesson)
+        self.next_lesson_button.clicked.connect(self.open_next_lesson)
         self.setStyleSheet('background-color: #ffe4b5;')
 
     def return_back(self):
@@ -265,7 +270,7 @@ class QuizInroduction(QMainWindow, Ui_QuizIntroduction):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        # self.saw_button.clicked.connect(self.next_window)
+        self.next_button.clicked.connect(self.next_window)
         self.return_button.clicked.connect(self.return_back)
         self.setStyleSheet('background-color: #ffe4b5;')
     
