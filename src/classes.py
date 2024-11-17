@@ -24,11 +24,13 @@ QUESTION_NUMBER = 1
 AMOUNT_OF_QUESTIONS = 1
 LEVEL = ''
 USED_LINES = []
+CORRECT_ANSWERS = 0
 
 
 class QuizQuestion(QMainWindow, Ui_QuizQuestion):
     def __init__(self):
         global QUESTION_NUMBER
+        global USED_LINES
 
         super().__init__()
         self.setupUi(self)
@@ -36,7 +38,7 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
         self.next_question_button.clicked.connect(self.open_next_question)
         self.setStyleSheet('background-color: #ffe4b5;')
 
-        self.valid_lines = [line for line in CSV_DATA if (line[1] == LEVEL) and line not in USED_LINES]
+        self.valid_lines = [line for line in CSV_DATA if line[1] == LEVEL and line not in USED_LINES]
         self.random_line = random.choice(self.valid_lines)
         self.question, self.difficulty = self.random_line[0], self.random_line[1]
         self.first_variant = self.random_line[2]
@@ -60,23 +62,25 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
         self.fourth_variant_button.clicked.connect(self.check_answer)
 
         self.buttons = [self.first_variant_button, self.second_variant_button,
-                        self.third_variant_button, self.fourth_variant_button,]
+                        self.third_variant_button, self.fourth_variant_button]
+        
+        USED_LINES.append(self.random_line)
     
     def check_answer(self):
+        global CORRECT_ANSWERS
+
         given_answer = self.sender().text()
 
         if given_answer == self.answer:
             self.sender().setStyleSheet('background-color: green;')
+            CORRECT_ANSWERS += 1
             
-            for button in self.buttons:
-                if button is not self.sender():
-                    button.setEnabled(False)
         else:
             self.sender().setStyleSheet('background-color: red;')
 
-            for button in self.buttons:
-                if button is not self.sender():
-                    button.setEnabled(False)
+        for button in self.buttons:
+            if button is not self.sender():
+                button.setEnabled(False)
 
     def end_quiz(self):
         self.main_menu = MainMenu()
@@ -84,7 +88,12 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
         self.hide()
 
     def open_next_question(self):
-        ...
+        if AMOUNT_OF_QUESTIONS >= QUESTION_NUMBER:
+            self.next_question_window = QuizQuestion()
+            self.next_question_window.show()
+            self.hide()
+        else:
+            ...
 
 
 class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
