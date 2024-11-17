@@ -1,8 +1,10 @@
+import random
+
 from PyQt6.QtWidgets import QMainWindow, QVBoxLayout
 from PyQt6.QtGui import QIcon, QColor, QTextCharFormat
 from PyQt6 import QtCore
 
-from py_items.config import EVENTS
+from py_items.config import EVENTS, CSV_DATA
 from py_items.main_menu import Ui_MainMenu
 from py_items.book import Ui_Book
 from py_items.calendar_ import Ui_Calendar
@@ -15,11 +17,74 @@ from py_items.twenty_century import Ui_TwentyCentury
 from py_items.modern_world import Ui_ModernWorld
 from py_items.quiz_introduction import Ui_QuizIntroduction
 from py_items.ancient_first_lesson import Ui_AncientFirstLesson
+from py_items.quiz_question import Ui_QuizQuestion
 
 
 QUESTION_NUMBER = 1
 AMOUNT_OF_QUESTIONS = 1
 LEVEL = ''
+USED_LINES = []
+
+
+class QuizQuestion(QMainWindow, Ui_QuizQuestion):
+    def __init__(self):
+        global QUESTION_NUMBER
+
+        super().__init__()
+        self.setupUi(self)
+        self.end_button.clicked.connect(self.end_quiz)
+        self.next_question_button.clicked.connect(self.open_next_question)
+        self.setStyleSheet('background-color: #ffe4b5;')
+
+        self.valid_lines = [line for line in CSV_DATA if (line[1] == LEVEL) and line not in USED_LINES]
+        self.random_line = random.choice(self.valid_lines)
+        self.question, self.difficulty = self.random_line[0], self.random_line[1]
+        self.first_variant = self.random_line[2]
+        self.second_variant = self.random_line[3]
+        self.third_variant = self.random_line[4]
+        self.fourth_variant = self.random_line[5]
+        self.answer = self.random_line[6]
+
+        self.question_number_label.setText(f'Вопрос №{QUESTION_NUMBER}')
+        QUESTION_NUMBER += 1
+        
+        self.question_label.setText(self.question)
+        self.first_variant_button.setText(self.first_variant)
+        self.second_variant_button.setText(self.second_variant)
+        self.third_variant_button.setText(self.third_variant)
+        self.fourth_variant_button.setText(self.fourth_variant)
+
+        self.first_variant_button.clicked.connect(self.check_answer)
+        self.second_variant_button.clicked.connect(self.check_answer)
+        self.third_variant_button.clicked.connect(self.check_answer)
+        self.fourth_variant_button.clicked.connect(self.check_answer)
+
+        self.buttons = [self.first_variant_button, self.second_variant_button,
+                        self.third_variant_button, self.fourth_variant_button,]
+    
+    def check_answer(self):
+        given_answer = self.sender().text()
+
+        if given_answer == self.answer:
+            self.sender().setStyleSheet('background-color: green;')
+            
+            for button in self.buttons:
+                if button is not self.sender():
+                    button.setEnabled(False)
+        else:
+            self.sender().setStyleSheet('background-color: red;')
+
+            for button in self.buttons:
+                if button is not self.sender():
+                    button.setEnabled(False)
+
+    def end_quiz(self):
+        self.main_menu = MainMenu()
+        self.main_menu.show()
+        self.hide()
+
+    def open_next_question(self):
+        ...
 
 
 class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
@@ -275,13 +340,20 @@ class QuizInroduction(QMainWindow, Ui_QuizIntroduction):
         self.setStyleSheet('background-color: #ffe4b5;')
     
     def next_window(self):
-        ...
+        global AMOUNT_OF_QUESTIONS
+        global LEVEL
+
+        AMOUNT_OF_QUESTIONS = int(self.amount_of_questions.text())
+        LEVEL = self.chosen_level.currentText()
+
+        self.quiz_question = QuizQuestion()
+        self.quiz_question.show()
+        self.hide()
 
     def return_back(self):
         self.new_menu = MainMenu()
         self.new_menu.show()
         self.hide()
-
 
 class Book(QMainWindow, Ui_Book):
     def __init__(self):
