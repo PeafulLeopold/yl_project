@@ -1,6 +1,6 @@
 import random
 
-from PyQt6.QtWidgets import QMainWindow, QVBoxLayout
+from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtGui import QIcon, QColor, QTextCharFormat
 from PyQt6 import QtCore
 
@@ -116,6 +116,12 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
                 button.setEnabled(False)
 
     def end_quiz(self):
+        global QUESTION_NUMBER
+        global CORRECT_ANSWERS
+
+        QUESTION_NUMBER = 1
+        CORRECT_ANSWERS = 0
+        
         self.main_menu = MainMenu()
         self.main_menu.show()
         self.hide()
