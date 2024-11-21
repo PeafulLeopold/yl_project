@@ -47,6 +47,10 @@ class Ui_Book(object):
         self.sources_button.setFont(self.average_font)        
         self.back_button.setFont(self.small_font)
 
+        self.widgets = [self.book_label, self.calendar_button,
+                        self.lesson_button, self.sources_button,
+                        self.back_button]
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 

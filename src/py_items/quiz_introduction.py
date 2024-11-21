@@ -58,6 +58,10 @@ class Ui_QuizIntroduction(object):
         self.next_button.setFont(self.average_font)
         self.amount_of_questions.setFont(self.under_big_font)
 
+        self.widgets = [self.heading_label, self.level_label, self.questions_label,
+                        self.chosen_level, self.return_button, self.next_button,
+                        self.amount_of_questions]
+
         self.amount_of_questions.setMaximum(15)
         self.amount_of_questions.setMinimum(1)
         

@@ -16,10 +16,10 @@ class Ui_ModernWorld(object):
         self.third_lesson = QtWidgets.QPushButton(parent=self.centralwidget)
         self.third_lesson.setGeometry(QtCore.QRect(220, 320, 521, 61))
         self.third_lesson.setObjectName("third_lesson")
-        self.ancient_label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.ancient_label.setGeometry(QtCore.QRect(10, 0, 941, 71))
-        self.ancient_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.ancient_label.setObjectName("ancient_label")
+        self.modern_world = QtWidgets.QLabel(parent=self.centralwidget)
+        self.modern_world.setGeometry(QtCore.QRect(10, 0, 941, 71))
+        self.modern_world.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.modern_world.setObjectName("modern_world")
         self.return_button = QtWidgets.QPushButton(parent=self.centralwidget)
         self.return_button.setGeometry(QtCore.QRect(400, 460, 161, 28))
         self.return_button.setObjectName("return_button")
@@ -40,12 +40,15 @@ class Ui_ModernWorld(object):
         self.average_font.setBold(True)
         self.small_font.setBold(True)
 
-        self.ancient_label.setFont(self.big_font)
+        self.modern_world.setFont(self.big_font)
         self.first_lesson.setFont(self.average_font)
         self.second_lesson.setFont(self.average_font)
         self.third_lesson.setFont(self.average_font)
         self.return_button.setFont(self.small_font)
         self.return_button.setIcon(QIcon('data/icons/return.svg'))
+
+        self.widgets = [self.first_lesson, self.second_lesson, self.third_lesson,
+                        self.modern_world, self.return_button]
 
         self.retranslateUi(ModernWorld)
         QtCore.QMetaObject.connectSlotsByName(ModernWorld)
@@ -56,5 +59,5 @@ class Ui_ModernWorld(object):
         self.first_lesson.setText(_translate("ModernWorld", "Урок 1. Глобализация и её последствия"))
         self.second_lesson.setText(_translate("ModernWorld", "Урок 2. Конфликты и кризисы XXI века"))
         self.third_lesson.setText(_translate("ModernWorld", "Урок 3. Развитие технологий и их влияние на общество"))
-        self.ancient_label.setText(_translate("ModernWorld", "Современный мир"))
+        self.modern_world.setText(_translate("ModernWorld", "Современный мир"))
         self.return_button.setText(_translate("ModernWorld", "Вернуться назад"))

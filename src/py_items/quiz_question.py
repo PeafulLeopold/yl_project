@@ -60,6 +60,9 @@ class Ui_QuizQuestion(object):
         self.end_button.setFont(self.small_font)
         self.next_question_button.setFont(self.small_font)
 
+        self.widgets = [self.question_label, self.question_number_label, self.first_variant_button,
+                        self.second_variant_button, self.third_variant_button, self.fourth_variant_button,
+                        self.end_button, self.next_question_button]
 
         self.retranslateUi(QuizQuestion)
         QtCore.QMetaObject.connectSlotsByName(QuizQuestion)

@@ -51,6 +51,9 @@ class Ui_QuizResult(object):
         self.restart_button.setFont(self.small_font)
         self.menu_button.setFont(self.small_font)
 
+        self.widgets = [self.congratulations_label, self.summing_label, self.result_label,
+                        self.restart_button, self.menu_button]
+
         self.menu_button.setIcon(QIcon('data/icons/menu.svg'))
         self.restart_button.setIcon(QIcon('data/icons/restart.svg'))
 

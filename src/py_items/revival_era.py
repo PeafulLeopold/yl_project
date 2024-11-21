@@ -47,6 +47,9 @@ class Ui_RevivalEra(object):
         self.return_button.setFont(self.small_font)
         self.return_button.setIcon(QIcon('data/icons/return.svg'))
 
+        self.widgets = [self.first_lesson, self.second_lesson, self.third_lesson,
+                        self.ancient_label, self.return_button]
+
         self.retranslateUi(RevivalEra)
         QtCore.QMetaObject.connectSlotsByName(RevivalEra)
 

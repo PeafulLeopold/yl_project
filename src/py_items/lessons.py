@@ -57,6 +57,10 @@ class Ui_Lessons(object):
         self.lessons_button.setFont(average_font)
         self.return_button.setFont(small_font)
 
+        self.widgets = [self.lessons_label, self.structure_label,
+                        self.choose_label, self.epochesbox, self.lessons_button,
+                        self.return_button]
+
         self.retranslateUi(Lessons)
         QtCore.QMetaObject.connectSlotsByName(Lessons)
 

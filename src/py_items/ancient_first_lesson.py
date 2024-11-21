@@ -75,6 +75,10 @@ class Ui_AncientFirstLesson(object):
         self.olmeki_photo.setScaledContents(True)
         self.china_photo.setScaledContents(True)
 
+        self.widgets = [self.heading_label, self.shumer, self.olmeki,
+                        self.ancient_china, self.first_civ_label, self.return_button,
+                        self.next_lesson_button]
+
         self.retranslateUi(AncientFirstLesson)
         QtCore.QMetaObject.connectSlotsByName(AncientFirstLesson)
 

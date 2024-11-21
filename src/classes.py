@@ -1,8 +1,8 @@
 import random
 
-from PyQt6.QtWidgets import QMainWindow
+from PyQt6.QtWidgets import QMainWindow, QMessageBox, QPushButton
 from PyQt6.QtGui import QIcon, QColor, QTextCharFormat
-from PyQt6 import QtCore
+from PyQt6 import QtCore, QtWidgets
 
 from py_items.config import EVENTS, CSV_DATA
 from py_items.main_menu import Ui_MainMenu
@@ -19,6 +19,10 @@ from py_items.quiz_introduction import Ui_QuizIntroduction
 from py_items.ancient_first_lesson import Ui_AncientFirstLesson
 from py_items.quiz_question import Ui_QuizQuestion
 from py_items.quiz_result import Ui_QuizResult
+from py_items.settings import Ui_Settings
+
+
+THEME = 'light'
 
 
 QUESTION_NUMBER = 1
@@ -34,10 +38,19 @@ class QuizResult(QMainWindow, Ui_QuizResult):
         self.setupUi(self)
         self.menu_button.clicked.connect(self.open_menu)
         self.restart_button.clicked.connect(self.restart_quiz)
-        self.setStyleSheet('background-color: #ffe4b5;')
 
         self.result_label.setText(f'{CORRECT_ANSWERS} из {AMOUNT_OF_QUESTIONS} баллов')
-    
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+        
+
+            
     def open_menu(self):
         global QUESTION_NUMBER
         global CORRECT_ANSWERS
@@ -69,7 +82,6 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
         self.setupUi(self)
         self.end_button.clicked.connect(self.end_quiz)
         self.next_question_button.clicked.connect(self.open_next_question)
-        self.setStyleSheet('background-color: #ffe4b5;')
 
         self.valid_lines = [line for line in CSV_DATA if line[1] == LEVEL and line not in USED_LINES]
         self.random_line = random.choice(self.valid_lines)
@@ -98,7 +110,16 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
                         self.third_variant_button, self.fourth_variant_button]
         
         USED_LINES.append(self.random_line)
-    
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+            
     def check_answer(self):
         global CORRECT_ANSWERS
 
@@ -143,8 +164,16 @@ class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
         self.setupUi(self)
         self.return_button.clicked.connect(self.return_back)
         self.next_lesson_button.clicked.connect(self.open_next_lesson)
-        self.setStyleSheet('background-color: #ffe4b5;')
 
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+        
     def return_back(self):
         self.ancient_times = Ancient_World()
         self.ancient_times.show()
@@ -162,8 +191,16 @@ class Middle_Ages(QMainWindow, Ui_MiddleAges):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
-        self.setStyleSheet('background-color: #ffe4b5;')
-    
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+            
     def open_first_lesson(self):
         ...
     
@@ -187,8 +224,16 @@ class Ancient_World(QMainWindow, Ui_AncientWorld):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
-        self.setStyleSheet('background-color: #ffe4b5;')
 
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+        
     def open_first_lesson(self):
         self.first_lesson_window = AncientFirstLesson()
         self.first_lesson_window.show()
@@ -214,8 +259,16 @@ class RevivalEra(QMainWindow, Ui_RevivalEra):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
-        self.setStyleSheet('background-color: #ffe4b5;')
 
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+        
     def open_first_lesson(self):
         ...
     
@@ -239,8 +292,16 @@ class NewEra(QMainWindow, Ui_NewEra):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
-        self.setStyleSheet('background-color: #ffe4b5;')
 
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+        
     def open_first_lesson(self):
         ...
     
@@ -264,8 +325,16 @@ class TwentyCentury(QMainWindow, Ui_TwentyCentury):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
-        self.setStyleSheet('background-color: #ffe4b5;')
 
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+        
     def open_first_lesson(self):
         ...
     
@@ -289,7 +358,14 @@ class ModernWorld(QMainWindow, Ui_ModernWorld):
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
-        self.setStyleSheet('background-color: #ffe4b5;')
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
 
     def open_first_lesson(self):
         ...
@@ -313,8 +389,15 @@ class Lessons(QMainWindow, Ui_Lessons):
         self.return_button.setIcon(QIcon('data/icons/return.svg'))
         self.return_button.clicked.connect(self.return_back)
         self.lessons_button.clicked.connect(self.open_lesson)
-        self.setStyleSheet('background-color: #ffe4b5;')
-    
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
     def open_lesson(self):
         item_text = self.epochesbox.currentText()
 
@@ -363,8 +446,16 @@ class Calendar(QMainWindow, Ui_Calendar):
         self.return_button.clicked.connect(self.return_back) 
         self.format = QTextCharFormat()
         self.format.setBackground(QColor("red"))
-        self.setStyleSheet('background-color: #ffe4b5;')
 
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+        
         for event_date in EVENTS.keys():
             self.date = QtCore.QDate.fromString(event_date, 'yyyy-MM-dd')
             self.calendar.setDateTextFormat(self.date, self.format)
@@ -387,8 +478,16 @@ class QuizInroduction(QMainWindow, Ui_QuizIntroduction):
         self.setupUi(self)
         self.next_button.clicked.connect(self.next_window)
         self.return_button.clicked.connect(self.return_back)
-        self.setStyleSheet('background-color: #ffe4b5;')
-    
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+        
+            
     def next_window(self):
         global AMOUNT_OF_QUESTIONS
         global LEVEL
@@ -412,10 +511,18 @@ class Book(QMainWindow, Ui_Book):
         self.back_button.clicked.connect(self.return_page)
         self.calendar_button.clicked.connect(self.open_calendar)
         self.lesson_button.clicked.connect(self.open_lessons)
-        self.setStyleSheet('background-color: #ffe4b5;')
         
         self.back_button.setIcon(QIcon('data/icons/return.svg'))
-    
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+            
     def return_page(self):
         self.menu = MainMenu()
         self.menu.show()
@@ -431,6 +538,75 @@ class Book(QMainWindow, Ui_Book):
         self.lessons.show()
         self.hide()
 
+
+class Settings(QMainWindow, Ui_Settings):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.save_changes_button.clicked.connect(self.update_changes)
+        self.return_button.clicked.connect(self.return_back)
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+            
+    def update_changes(self):
+        global THEME
+
+        if self.theme_choose.currentText() == 'Темная':
+            msg_box = QMessageBox()
+            msg_box.setWindowTitle('Подтверждение изменений')
+            msg_box.setText('Вы хотите применить изменения?')
+
+            msg_box.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+
+            msg_box.button(QMessageBox.StandardButton.Yes).setText('Да')
+            msg_box.button(QMessageBox.StandardButton.No).setText('Нет')
+
+            result = msg_box.exec()
+
+            if result == QMessageBox.StandardButton.Yes:
+                THEME = 'dark'
+                self.setStyleSheet('background-color: #151719;')
+                self.theme_choose.setCurrentIndex(1)
+
+                for widget in self.widgets:
+                    widget.setStyleSheet('color: white;')
+            else:
+                ...
+        else:
+            msg_box = QMessageBox()
+            msg_box.setWindowTitle('Подтверждение изменений')
+            msg_box.setText('Вы хотите применить изменения?')
+
+            msg_box.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+
+            msg_box.button(QMessageBox.StandardButton.Yes).setText('Да')
+            msg_box.button(QMessageBox.StandardButton.No).setText('Нет')
+
+            result = msg_box.exec()
+
+            if result == QMessageBox.StandardButton.Yes:
+                self.theme_choose.setCurrentIndex(0)
+                self.setStyleSheet('background-color: #ffe4b5;')
+                THEME = 'light'
+                
+                for widget in self.widgets:
+                    widget.setStyleSheet('color: black;')
+            
+            else:
+                ...
+
+    def return_back(self):
+        self.menu_window = MainMenu()
+        self.menu_window.show()
+        self.hide()
+
+
 class MainMenu(QMainWindow, Ui_MainMenu):
     def __init__(self):
         super().__init__()
@@ -442,8 +618,17 @@ class MainMenu(QMainWindow, Ui_MainMenu):
 
         self.book_button.clicked.connect(self.open_book)
         self.quiz_button.clicked.connect(self.open_quiz)
-        self.setStyleSheet('background-color: #ffe4b5;')
-    
+        self.settings_button.clicked.connect(self.open_settings)
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+
+            
     def open_quiz(self):
         self.quiz_introduction = QuizInroduction()
         self.quiz_introduction.show()
@@ -452,4 +637,9 @@ class MainMenu(QMainWindow, Ui_MainMenu):
     def open_book(self):
         self.book = Book()
         self.book.show()
+        self.hide()
+    
+    def open_settings(self):
+        self.settings_window = Settings()
+        self.settings_window.show()
         self.hide()

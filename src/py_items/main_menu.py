@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import QVBoxLayout
 class Ui_MainMenu(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainMenu")
-        MainWindow.resize(1276, 1307)
+        MainWindow.resize(1170, 1300)
         self.centralwidget = QtWidgets.QWidget()
         self.centralwidget.setObjectName("centralwidget")
         self.quiz_button = QtWidgets.QPushButton(parent=self.centralwidget)
@@ -56,6 +56,10 @@ class Ui_MainMenu(object):
         self.target_label.setFont(font_small)
         self.section_label.setFont(welcome_font)
         self.welcome_label.setFont(welcome_font)
+
+        self.widgets = [self.quiz_button, self.help_button, self.settings_button,
+                        self.book_button, self.target_label, self.section_label,
+                        self.welcome_label]
         
         self.target_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.section_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)

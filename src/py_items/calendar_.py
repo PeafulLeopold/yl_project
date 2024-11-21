@@ -87,6 +87,10 @@ class Ui_Calendar(object):
         self.event_label.setFont(self.average_font)
         self.return_button.setFont(self.average_font)
 
+        self.widgets = [self.heading_label, self.second_label,
+                        self.data_label, self.event_label,
+                        self.return_button]
+
         self.second_label.move(315, 40)
         self.result.setEnabled(False)
         self.return_button.setIcon(QIcon('icons/return.svg'))
