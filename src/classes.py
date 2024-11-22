@@ -171,24 +171,27 @@ class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
             for widget in self.widgets:
                 widget.setStyleSheet('color: white;')
 
-            self.shumer.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'-apple-system,BlinkMacSystemFont,Arial,Helvetica,sans-serif\'; font-size:9pt; font-weight:600; font-style:italic; color:white; background-color:#151719;\">Шумерская цивилизация</span><span style=\" font-family:\'-apple-system,BlinkMacSystemFont,Arial,Helvetica,sans-serif\'; font-size:9pt; font-style:italic; color: white; background-color:#151719;\"> считается первой в истории человечества. Она возникла в долине рек Тигр и Евфрат (сейчас территория Ирака) примерно 6000 лет назад.</span></p></body></html>")
+            formatted_shumer = """<p style="color: white; background-color: #151719;">
+            <b>Шумерская цивилизация</b> <i>считается первой в истории человечества. Она возникла в долине рек Тигр и Евфрат (сейчас территория Ирака) примерно 6000 лет назад.</i>
+        </p>
+        """
             
-            self.olmeki.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'-apple-system,BlinkMacSystemFont,Arial,Helvetica,sans-serif\'; font-size:9pt; font-weight:600; font-style:italic; color: white; background-color:#151719;\">Ольмеки</span><span style=\" font-family:\'-apple-system,BlinkMacSystemFont,Arial,Helvetica,sans-serif\'; font-size:9pt; font-style:italic; color: white; background-color:#151719;\">. Археологическая культура, предшественник культуры майя. Зародилась в 2500 г. до н. э. на территории современной Мексики. Стала первой развитой цивилизацией в Центральной Америке</span></p></body></html>")
+            formatted_china = """<p style="color: white; background-color: #151719;">
+            <b>Древний Китай.</b> <i>Древнекитайская цивилизация зародилась на территории современного Китая в 5000 г. до н. э.. 
+            Развитию культуры способствовало активное земледелие в бассейнах рек Янцзы и Хуанхе.</i>
+        </p>
+        """
             
-            self.ancient_china.setHtml("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:6.6pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'-apple-system,BlinkMacSystemFont,Arial,Helvetica,sans-serif\'; font-size:9pt; font-weight:600; font-style:italic; color: white; background-color:#151719;\">Древний Китай</span><span style=\" font-family:\'-apple-system,BlinkMacSystemFont,Arial,Helvetica,sans-serif\'; font-size:9pt; font-style:italic; color: white; background-color:#151719;\">. Древнекитайская цивилизация зародилась на территории современного Китая в 5000 г. до н. э.. Развитию культуры способствовало активное земледелие в бассейнах рек Янцзы и Хуанхе.</span></p></body></html>")
-
+            formatted_olmeki = """<p style="color: white; background-color: #151719;">
+            <b>Ольмеки.</b> <i>Археологическая культура, предшественник культуры майя. Зародилась в 2500 г. до н. э. на территории современной Мексики. 
+            Стала первой развитой цивилизацией в Центральной Америке.</i>
+        </p>
+        """
+            
+            self.shumer.setHtml(formatted_shumer)
+            self.ancient_china.setHtml(formatted_china)
+            self.olmeki.setHtml(formatted_olmeki)
+            
             self.ancient_china.setTextColor(QColor('white'))
             self.ancient_china.setStyleSheet('background-color: #151719;')
         else:
