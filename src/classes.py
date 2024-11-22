@@ -617,7 +617,7 @@ class Settings(QMainWindow, Ui_Settings):
                 THEME = 'light'
                 
                 for widget in self.widgets:
-                    widget.setStyleSheet('color: white;')
+                    widget.setStyleSheet('color: black;')
             
             else:
                 ...
