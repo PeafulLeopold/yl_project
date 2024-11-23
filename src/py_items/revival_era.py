@@ -53,7 +53,7 @@ class Ui_RevivalEra(object):
     def retranslateUi(self, RevivalEra):
         _translate = QtCore.QCoreApplication.translate
         RevivalEra.setWindowTitle(_translate("RevivalEra", "RevivalEra"))
-        self.second_lesson.setText(_translate("RevivalEra", "Урок 1. Реформация и её влияние на религию и общество"))
+        self.second_lesson.setText(_translate("RevivalEra", "Урок 1. Реформация"))
         self.third_lesson.setText(_translate("RevivalEra", "Урок 2. Начало колонизации и глобализации"))
         self.ancient_label.setText(_translate("RevivalEra", "Эра Возрождения и Реформации"))
         self.return_button.setText(_translate("RevivalEra", "Вернуться назад"))
