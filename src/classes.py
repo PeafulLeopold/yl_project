@@ -20,6 +20,8 @@ from py_items.ancient_first_lesson import Ui_AncientFirstLesson
 from py_items.quiz_question import Ui_QuizQuestion
 from py_items.quiz_result import Ui_QuizResult
 from py_items.settings import Ui_Settings
+from py_items.ancient_second_lesson import Ui_AncientSecondLesson
+from py_items.ancient_third_lesson import Ui_AncientThirdLesson
 
 
 THEME = 'light'
@@ -30,6 +32,9 @@ AMOUNT_OF_QUESTIONS = 1
 LEVEL = ''
 USED_LINES = []
 CORRECT_ANSWERS = 0
+
+
+
 
 
 class QuizResult(QMainWindow, Ui_QuizResult):
@@ -158,6 +163,69 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
             self.hide()
 
 
+class AncientThirdLesson(QMainWindow, Ui_AncientThirdLesson):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.return_button.clicked.connect(self.return_back)
+        self.next_lesson_button.clicked.connect(self.open_next_lesson)
+        self.previous_lesson_button.clicked.connect(self.open_previous_lesson)
+
+        self.setStyleSheet('background-color: #ffe4b5;')
+    
+    def return_back(self):
+        self.ancient_times_window = Ancient_World()
+        self.ancient_times_window.show()
+        self.hide()
+    
+    def open_next_lesson(self):
+        ...
+    
+    def open_previous_lesson(self):
+        self.previous_lesson_window = AncientSecondLesson()
+        self.previous_lesson_window.show()
+        self.hide()
+
+class AncientSecondLesson(QMainWindow, Ui_AncientSecondLesson):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.return_button.clicked.connect(self.return_back)
+        self.next_lesson_button.clicked.connect(self.open_next_lesson)
+        self.previous_lesson_button.clicked.connect(self.open_previous_lesson)
+
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+
+            formatted_greece = """<p style="color: white; background-color: #151719;">
+            <b>Античная Греция</b> <i>(около VIII века до н.э. — IV век н.э.) известна своими городами-государствами, такими как Афины и Спарта. Афины стали центром демократии и культуры, где развивались философия (Сократ, Платон, Аристотель), театр (Эсхил, Софокл) и изобразительное искусство (скульптуры Фидия). 
+            Спарта славилась своим военным делом и строгой системой воспитания.</i>
+            </p>
+            """
+
+            
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+    
+    def return_back(self):
+        self.ancient_times_window = Ancient_World()
+        self.ancient_times_window.show()
+        self.hide()
+    
+    def open_next_lesson(self):
+        self.next_lesson_window = AncientThirdLesson()
+        self.next_lesson_window.show()
+        self.hide()
+    
+    def open_previous_lesson(self):
+        self.previous_lesson_window = AncientFirstLesson()
+        self.previous_lesson_window.show()
+        self.hide()
+
+
 class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
     def __init__(self):
         super().__init__()
@@ -191,9 +259,6 @@ class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
             self.shumer.setHtml(formatted_shumer)
             self.ancient_china.setHtml(formatted_china)
             self.olmeki.setHtml(formatted_olmeki)
-            
-            self.ancient_china.setTextColor(QColor('white'))
-            self.ancient_china.setStyleSheet('background-color: #151719;')
         else:
             self.setStyleSheet('background-color: #ffe4b5;')
 
@@ -204,7 +269,9 @@ class AncientFirstLesson(QMainWindow, Ui_AncientFirstLesson):
         self.hide()
 
     def open_next_lesson(self):
-        ...
+        self.next_lesson_window = AncientSecondLesson()
+        self.next_lesson_window.show()
+        self.hide()
 
 
 class Middle_Ages(QMainWindow, Ui_MiddleAges):
@@ -213,7 +280,6 @@ class Middle_Ages(QMainWindow, Ui_MiddleAges):
         self.setupUi(self)
         self.first_lesson.clicked.connect(self.open_first_lesson)
         self.second_lesson.clicked.connect(self.open_second_lesson)
-        self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
 
         if THEME == 'dark':
@@ -264,10 +330,14 @@ class Ancient_World(QMainWindow, Ui_AncientWorld):
         self.hide()
     
     def open_second_lesson(self):
-        ...
+        self.second_lesson_window = AncientSecondLesson()
+        self.second_lesson_window.show()
+        self.hide()
     
     def open_third_lesson(self):
-        ...
+        self.third_lesson_window = AncientThirdLesson()
+        self.third_lesson_window.show()
+        self.hide()
     
     def return_back(self):
         self.lessons = Lessons()
@@ -313,8 +383,6 @@ class NewEra(QMainWindow, Ui_NewEra):
         super().__init__()
         self.setupUi(self)
         self.first_lesson.clicked.connect(self.open_first_lesson)
-        self.second_lesson.clicked.connect(self.open_second_lesson)
-        self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
 
         if THEME == 'dark':
@@ -330,9 +398,6 @@ class NewEra(QMainWindow, Ui_NewEra):
         ...
     
     def open_second_lesson(self):
-        ...
-    
-    def open_third_lesson(self):
         ...
     
     def return_back(self):
@@ -347,7 +412,6 @@ class TwentyCentury(QMainWindow, Ui_TwentyCentury):
         self.setupUi(self)
         self.first_lesson.clicked.connect(self.open_first_lesson)
         self.second_lesson.clicked.connect(self.open_second_lesson)
-        self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)
 
         if THEME == 'dark':
@@ -365,9 +429,7 @@ class TwentyCentury(QMainWindow, Ui_TwentyCentury):
     def open_second_lesson(self):
         ...
     
-    def open_third_lesson(self):
-        ...
-    
+
     def return_back(self):
         self.lessons = Lessons()
         self.lessons.show()
@@ -378,7 +440,6 @@ class ModernWorld(QMainWindow, Ui_ModernWorld):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.first_lesson.clicked.connect(self.open_first_lesson)
         self.second_lesson.clicked.connect(self.open_second_lesson)
         self.third_lesson.clicked.connect(self.open_third_lesson)
         self.return_button.clicked.connect(self.return_back)

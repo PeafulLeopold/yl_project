@@ -13,9 +13,6 @@ class Ui_MiddleAges(object):
         self.second_lesson = QtWidgets.QPushButton(parent=self.centralwidget)
         self.second_lesson.setGeometry(QtCore.QRect(220, 250, 521, 61))
         self.second_lesson.setObjectName("second_lesson")
-        self.third_lesson = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.third_lesson.setGeometry(QtCore.QRect(220, 320, 521, 61))
-        self.third_lesson.setObjectName("third_lesson")
         self.ancient_label = QtWidgets.QLabel(parent=self.centralwidget)
         self.ancient_label.setGeometry(QtCore.QRect(10, 0, 941, 71))
         self.ancient_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -43,11 +40,10 @@ class Ui_MiddleAges(object):
         self.ancient_label.setFont(self.big_font)
         self.first_lesson.setFont(self.average_font)
         self.second_lesson.setFont(self.average_font)
-        self.third_lesson.setFont(self.average_font)
         self.return_button.setFont(self.small_font)
         self.return_button.setIcon(QIcon('data/icons/return.svg'))
 
-        self.widgets = [self.first_lesson, self.second_lesson, self.third_lesson,
+        self.widgets = [self.first_lesson, self.second_lesson,
                         self.ancient_label, self.return_button]
 
         self.retranslateUi(MiddleAges)
@@ -58,6 +54,5 @@ class Ui_MiddleAges(object):
         MiddleAges.setWindowTitle(_translate("MiddleAges", "MiddleAges"))
         self.first_lesson.setText(_translate("MiddleAges", "Урок 1. Феодализм в Европе"))
         self.second_lesson.setText(_translate("MiddleAges", "Урок 2. Крестовые походы и их последствия"))
-        self.third_lesson.setText(_translate("MiddleAges", "Урок 3. Династии Китая и Японии"))
         self.ancient_label.setText(_translate("MiddleAges", "Средневековье"))
         self.return_button.setText(_translate("MiddleAges", "Вернуться назад"))
