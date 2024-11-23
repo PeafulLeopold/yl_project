@@ -49,6 +49,19 @@ class Lesson(QMainWindow, Ui_Lesson):
         self.next_lesson_button.setIcon(QIcon('data/icons/next.svg'))
         self.return_button.setIcon(QIcon('data/icons/return.svg'))
         self.previous_lesson_button.setIcon(QIcon('data/icons/previous.svg'))
+
+        self.widgets = [self.heading_label, self.first_label, self.second_label,
+                        self.third_label, self.fourth_label, self.return_button,
+                        self.next_lesson_button, self.previous_lesson_button]
+        
+        if THEME == 'dark':
+            self.setStyleSheet('background-color: #151719;')
+
+            for widget in self.widgets:
+                widget.setStyleSheet('color: white;')
+
+            self.main_text.setStyleSheet("color: white; background-color: #151719;")
+
     
 
 class ModernWorldFirstLesson(Lesson):
@@ -462,7 +475,7 @@ class MiddleAgesFirstLesson(Lesson):
         self.heading_label.setText('Феодализм в Европе')
 
         formatted_text = """
-        <p style="color: black; font-size: 15px;">
+        <p font-size: 15px;">
             <b>Феодализм</b> — <i>это социально-экономическая система, существовавшая в Европе с IX по XV века, основанная на отношениях между землевладельцами и зависимыми крестьянами.<i></p> 
             
             <p><b>В центре системы находился король, который раздавал земли вассалам в обмен на военную службу. Лорды управляли своими землями и обеспечивали защиту подданным, а крестьяне работали на их земле, получая защиту и небольшой участок для себя.
