@@ -16,12 +16,9 @@ from py_items.new_era import Ui_NewEra
 from py_items.twenty_century import Ui_TwentyCentury
 from py_items.modern_world import Ui_ModernWorld
 from py_items.quiz_introduction import Ui_QuizIntroduction
-from py_items.ancient_first_lesson import Ui_AncientFirstLesson
 from py_items.quiz_question import Ui_QuizQuestion
 from py_items.quiz_result import Ui_QuizResult
 from py_items.settings import Ui_Settings
-from py_items.ancient_second_lesson import Ui_AncientSecondLesson
-from py_items.ancient_third_lesson import Ui_AncientThirdLesson
 from py_items.lesson import Ui_Lesson
 
 
