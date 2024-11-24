@@ -1,4 +1,5 @@
 import random
+import webbrowser
 
 from PyQt6.QtWidgets import QMainWindow, QMessageBox, QVBoxLayout
 from PyQt6.QtGui import QIcon, QColor, QTextCharFormat, QPixmap, QIcon
@@ -63,7 +64,6 @@ class Lesson(QMainWindow, Ui_Lesson):
             change_on_dark_theme(self)
 
             self.main_text.setStyleSheet("color: white; background-color: #151719;")
-
     
 
 class ModernWorldFirstLesson(Lesson):
