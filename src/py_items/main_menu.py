@@ -58,8 +58,8 @@ class Ui_MainMenu(object):
         self.welcome_label.setFont(welcome_font)
 
         self.widgets = [self.quiz_button, self.help_button, self.settings_button,
-                        self.book_button, self.target_label, self.section_label,
-                        self.welcome_label]
+                        self.book_button, self.section_label,
+                        self.welcome_label, self.target_label]
         
         self.target_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.section_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)

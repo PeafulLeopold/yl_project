@@ -89,7 +89,7 @@ class Ui_Calendar(object):
 
         self.widgets = [self.heading_label, self.second_label,
                         self.data_label, self.event_label,
-                        self.return_button]
+                        self.return_button, self.result]
 
         self.second_label.move(315, 40)
         self.result.setEnabled(False)
