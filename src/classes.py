@@ -73,6 +73,10 @@ class ModernWorldFirstLesson(Lesson):
 
         self.main_text.setHtml(MODERN_WORLD_1_FORMATTED)
         self.heading_label.setText('Развитие технологий')
+        self.first_photo.setPixmap(QPixmap('data/lessons_photo/modern_world_pict.webp'))
+        self.first_label.setText('Человек и технологии')
+        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/mw_2.webp'))
+        self.fourth_label.setText('Человек и гаджеты')
     
     def open_next_lesson(self):
         self.first_lesson_window = AncientFirstLesson()
@@ -205,6 +209,15 @@ class NewEraFirstLesson(Lesson):
 
         self.main_text.setHtml(NEW_ERA_1_FORMATTED)
         self.heading_label.setText('Просвещение и его идеи')
+
+        self.first_photo.setPixmap(QPixmap('data/lessons_photo/kant.webp'))
+        self.first_label.setText('Эманнуил Кант')
+        
+        self.second_photo.setPixmap(QPixmap('data/lessons_photo/didro.webp'))
+        self.second_label.setText('Дени Дидро')
+
+        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/volter.webp'))
+        self.fourth_label.setText(' Франсуа-Мари Аруэ (Вольтер)')
     
     def open_next_lesson(self):
         self.first_lesson_window = TwentyCenturyFirstLesson()
