@@ -139,13 +139,13 @@ class TwentyCenturySecondLesson(Lesson):
         self.main_text.setHtml(TWENTY_CENTURY_2_FORMATTED)
         self.heading_label.setText('Вторая Мировая Война')
         
-        self.first_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/ger_pol.webp'))
+        self.first_photo.setPixmap(QPixmap('data/lessons_photo/ger_pol.webp'))
         self.first_label.setText('Немецкая атака на Польшу')
 
-        self.second_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/perl.webp'))
+        self.second_photo.setPixmap(QPixmap('data/lessons_photo/perl.webp'))
         self.second_label.setText('Атака на Перл-Харбор')
 
-        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/england_fight.webp'))
+        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/england_fight.webp'))
         self.fourth_label.setText('Битва за Англию')
 
     def open_next_lesson(self):
@@ -171,16 +171,16 @@ class TwentyCenturyFirstLesson(Lesson):
         self.main_text.setHtml(TWENTY_CENTURY_1_FORMATTED)
         self.heading_label.setText('Первая Мировая Война')
         
-        self.first_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/marna.webp'))
+        self.first_photo.setPixmap(QPixmap('data/lessons_photo/marna.webp'))
         self.first_label.setText('Битва близ реки Марны')
 
-        self.second_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/somma.webp'))
+        self.second_photo.setPixmap(QPixmap('data/lessons_photo/somma.webp'))
         self.second_label.setText('Битва близ реки Соммы')
 
-        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/peaceful_meeting.webp'))
+        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/peaceful_meeting.webp'))
         self.fourth_label.setText('Компьерский договор')
 
-        self.third_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/gal.webp'))
+        self.third_photo.setPixmap(QPixmap('data/lessons_photo/gal.webp'))
         self.third_label.setText('Галлипольская операция')
     
     def open_next_lesson(self):
@@ -229,10 +229,10 @@ class RevivalSecondLesson(Lesson):
         self.main_text.setHtml(REVIVAL_2_FORMATTED)
         self.heading_label.setText('Появление колонизации и глобализации')
 
-        self.first_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/columb.webp'))
+        self.first_photo.setPixmap(QPixmap('data/lessons_photo/columb.webp'))
         self.first_label.setText('Христофор Колумб в Америке')
 
-        self.second_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/vasko.webp'))
+        self.second_photo.setPixmap(QPixmap('data/lessons_photo/vasko.webp'))
         self.second_label.setText('Васко Да Гама в Индии')
     
     def open_next_lesson(self):
@@ -277,16 +277,16 @@ class RevivalFirstLesson(Lesson):
 class MiddleAgesFirstLesson(Lesson):
     def __init__(self):
         super().__init__()
-        self.first_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/scheme.webp'))
+        self.first_photo.setPixmap(QPixmap('data/lessons_photo/scheme.webp'))
         self.first_label.setText('Схема феодальной иерархии')
 
-        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/knight.jpg'))
+        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/knight.jpg'))
         self.fourth_label.setText('Иллюстрация рыцаря')
 
-        self.third_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/crestiane_life.webp'))
+        self.third_photo.setPixmap(QPixmap('data/lessons_photo/crestiane_life.webp'))
         self.third_label.setText('Сцена из жизни крестьян')
 
-        self.second_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/feodal_zamok.webp'))
+        self.second_photo.setPixmap(QPixmap('data/lessons_photo/feodal_zamok.webp'))
         self.second_label.setText('Средневековый замок')
 
         self.heading_label.setText('Феодализм в Европе')
@@ -315,10 +315,10 @@ class MiddleAgesSecondLesson(Lesson):
         
         self.main_text.setHtml(MIDDLE_AGES_2_FORMATTED)
         self.heading_label.setText('Крестовые походы и их последствия')
-        self.first_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/krest_pohod.webp'))
+        self.first_photo.setPixmap(QPixmap('data/lessons_photo/krest_pohod.webp'))
         self.first_label.setText('Битва близ Иерусалима')
         
-        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/taking_of_jerusalem.webp'))
+        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/taking_of_jerusalem.webp'))
         self.fourth_label.setText('Взятие Иерусалима')
     
     def return_back(self):
@@ -488,10 +488,10 @@ class AncientSecondLesson(Lesson):
         self.main_text.setHtml(ANCIENT_2_FORMMATED)
         self.heading_label.setText('Античная Греция и Рим')
 
-        self.first_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/coleseum.webp'))
+        self.first_photo.setPixmap(QPixmap('data/lessons_photo/coleseum.webp'))
         self.first_label.setText('Римский Колизей')
 
-        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/ancient_world/parphenon.webp'))
+        self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/parphenon.webp'))
         self.fourth_label.setText('Древнегреческий Парфенон')
     
     def return_back(self):
