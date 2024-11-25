@@ -26,6 +26,7 @@ from py_items.quiz_result import Ui_QuizResult
 from py_items.settings import Ui_Settings
 from py_items.lesson import Ui_Lesson
 from py_items.help import Ui_Help
+from py_items.useful_material import Ui_UsefulMaterial
 
 
 THEME = 'light'
@@ -85,6 +86,48 @@ class ModernWorldFirstLesson(Lesson):
     
     def return_back(self):
         self.back = ModernWorld()
+        self.back.show()
+        self.hide()
+
+
+class UsefulMaterial(QMainWindow, Ui_UsefulMaterial):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+
+        self.first_article.clicked.connect(self.open_first_article)
+        self.second_article.clicked.connect(self.open_second_article)
+        self.third_article.clicked.connect(self.open_third_article)
+        self.fourth_article.clicked.connect(self.open_fourth_article)
+        self.fifth_article.clicked.connect(self.open_fifth_article)
+        self.sixth_article.clicked.connect(self.open_sixth_article)
+        self.return_button.clicked.connect(self.return_back)
+
+        if THEME == 'dark':
+            change_on_dark_theme(self)
+        else:
+            self.setStyleSheet('background-color: #ffe4b5;')
+    
+    def open_first_article(self):
+        webbrowser.open('https://spravochnick.ru/istoriya/drevniy_egipet/kultura_drevnego_egipta/')
+    
+    def open_second_article(self):
+        webbrowser.open('https://bigenc.ru/c/feodalizm-ee8bae')
+
+    def open_third_article(self):
+        webbrowser.open('https://diletant.media/articles/45255194/')
+    
+    def open_fourth_article(self):
+        webbrowser.open('https://dzen.ru/a/X6PVEY61sjowqIzT')
+    
+    def open_fifth_article(self):
+        webbrowser.open('https://diletant.media/articles/45344269/')
+    
+    def open_sixth_article(self):
+        webbrowser.open('https://apni.ru/article/6563-globalizatsiya-kak-novij-vizov-sovremennomu')
+    
+    def return_back(self):
+        self.back = Book()
         self.back.show()
         self.hide()
 
@@ -340,6 +383,9 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
         self.end_button.clicked.connect(self.end_quiz)
         self.next_question_button.clicked.connect(self.open_next_question)
 
+        self.buttons = [self.first_variant_button, self.second_variant_button,
+                        self.third_variant_button, self.fourth_variant_button]
+
         self.valid_lines = [line for line in CSV_DATA if line[1] == LEVEL and line not in USED_LINES]
         self.random_line = random.choice(self.valid_lines)
         self.question, self.difficulty = self.random_line[0], self.random_line[1]
@@ -349,22 +395,25 @@ class QuizQuestion(QMainWindow, Ui_QuizQuestion):
         self.fourth_variant = self.random_line[5]
         self.answer = self.random_line[6]
 
+        self.variants = [self.first_variant, self.second_variant,
+                         self.third_variant, self.fourth_variant]
+        
+        random.shuffle(self.variants)
+
         self.question_number_label.setText(f'Вопрос №{QUESTION_NUMBER}')
         QUESTION_NUMBER += 1
         
         self.question_label.setText(self.question)
-        self.first_variant_button.setText(self.first_variant)
-        self.second_variant_button.setText(self.second_variant)
-        self.third_variant_button.setText(self.third_variant)
-        self.fourth_variant_button.setText(self.fourth_variant)
+
+        for i in range(len(self.buttons)):
+            self.buttons[i].setText(self.variants[i])
 
         self.first_variant_button.clicked.connect(self.check_answer)
         self.second_variant_button.clicked.connect(self.check_answer)
         self.third_variant_button.clicked.connect(self.check_answer)
         self.fourth_variant_button.clicked.connect(self.check_answer)
 
-        self.buttons = [self.first_variant_button, self.second_variant_button,
-                        self.third_variant_button, self.fourth_variant_button]
+        
         
         USED_LINES.append(self.random_line)
 
@@ -794,6 +843,7 @@ class Book(QMainWindow, Ui_Book):
         self.back_button.clicked.connect(self.return_page)
         self.calendar_button.clicked.connect(self.open_calendar)
         self.lesson_button.clicked.connect(self.open_lessons)
+        self.sources_button.clicked.connect(self.open_useful_material)
         
         self.back_button.setIcon(QIcon('data/icons/return.svg'))
 
@@ -815,6 +865,11 @@ class Book(QMainWindow, Ui_Book):
     def open_lessons(self):
         self.lessons = Lessons()
         self.lessons.show()
+        self.hide()
+    
+    def open_useful_material(self):
+        self.useful_window = UsefulMaterial()
+        self.useful_window.show()
         self.hide()
 
 
