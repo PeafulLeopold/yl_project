@@ -152,6 +152,9 @@ class TwentyCenturySecondLesson(Lesson):
         self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/england_fight.webp'))
         self.fourth_label.setText('Битва за Англию')
 
+        self.third_photo.setPixmap(QPixmap('data/lessons_photo/barb.webp'))
+        self.third_label.setText('    Операция Барбаросса')
+
     def open_next_lesson(self):
         self.first_lesson_window = ModernWorldFirstLesson()
         self.first_lesson_window.show()
