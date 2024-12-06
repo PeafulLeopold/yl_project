@@ -211,13 +211,16 @@ class NewEraFirstLesson(Lesson):
         self.heading_label.setText('Просвещение и его идеи')
 
         self.first_photo.setPixmap(QPixmap('data/lessons_photo/kant.webp'))
-        self.first_label.setText('Иманнуил Кант')
+        self.first_label.setText('      Иманнуил Кант')
         
         self.second_photo.setPixmap(QPixmap('data/lessons_photo/didro.webp'))
-        self.second_label.setText('Дени Дидро')
+        self.second_label.setText('      Дени Дидро')
 
         self.fourth_photo.setPixmap(QPixmap('data/lessons_photo/volter.webp'))
         self.fourth_label.setText(' Франсуа-Мари Аруэ (Вольтер)')
+
+        self.third_photo.setPixmap(QPixmap('data/lessons_photo/zhak.webp'))
+        self.third_label.setText('           Жан-Жак Руссо')
     
     def open_next_lesson(self):
         self.first_lesson_window = TwentyCenturyFirstLesson()
