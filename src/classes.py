@@ -367,9 +367,11 @@ class QuizResult(QMainWindow, Ui_QuizResult):
     def open_menu(self):
         global QUESTION_NUMBER
         global CORRECT_ANSWERS
+        global USED_LINES
 
         QUESTION_NUMBER = 1
         CORRECT_ANSWERS = 0
+        USED_LINES = []
 
         self.menu_window = MainMenu()
         self.menu_window.show()
@@ -378,6 +380,7 @@ class QuizResult(QMainWindow, Ui_QuizResult):
     def restart_quiz(self):
         global QUESTION_NUMBER
         global CORRECT_ANSWERS
+        global USED_LINES
 
         self.new_quiz_window = QuizInroduction()
         self.new_quiz_window.show()
@@ -385,6 +388,7 @@ class QuizResult(QMainWindow, Ui_QuizResult):
         
         QUESTION_NUMBER = 1
         CORRECT_ANSWERS = 0
+        USED_LINES = []
 
 class QuizQuestion(QMainWindow, Ui_QuizQuestion):
     def __init__(self):
