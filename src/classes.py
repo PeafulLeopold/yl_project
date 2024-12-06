@@ -211,7 +211,7 @@ class NewEraFirstLesson(Lesson):
         self.heading_label.setText('Просвещение и его идеи')
 
         self.first_photo.setPixmap(QPixmap('data/lessons_photo/kant.webp'))
-        self.first_label.setText('Эманнуил Кант')
+        self.first_label.setText('Иманнуил Кант')
         
         self.second_photo.setPixmap(QPixmap('data/lessons_photo/didro.webp'))
         self.second_label.setText('Дени Дидро')
